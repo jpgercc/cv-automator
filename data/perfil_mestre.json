@@ -1,45 +1,31 @@
 {
   "nome": "João Costa",
-  "titulo": "Engenheiro DevOps & SRE",
-  "email": "joao.costa@email.com",
-  "telefone": "+55 11 99999-0000",
-  "linkedin": "linkedin.com/in/joaocosta",
-  "github": "github.com/joaocosta",
-  "localizacao": "São Paulo, SP — Disponível para remoto",
-  "resumo_base": "Engenheiro DevOps com 7 anos de experiência em automação de infraestrutura, CI/CD, containers e cloud. Atuei em ambientes de alta disponibilidade com foco em confiabilidade, segurança e eficiência operacional.",
+  "titulo": "Engenheiro Fullstack",
+  "email": "jpgercc@gmail.com",
+  "telefone": "+55 51 99182-3420",
+  "linkedin": "linkedin.com/in/jpgeco",
+  "github": "github.com/jpgercc",
+  "localizacao": "Porto Alegre, RS — Disponível para remoto, híbrido ou presencial",
+  "resumo_base": "Desenvolvimento de software com atenção às regras de negócio e arquitetura de sistemas, com foco em resolver problemas de forma estruturada. Em projetos, o trabalho parte do entendimento do contexto para definir escopos e construir soluções técnicas claras e manuteníveis, com atenção à lógica, segurança de dados e integração de sistemas. Mais de 4 anos de experiência.",
   "experiencias": [
     {
-      "empresa": "TechCorp Brasil",
-      "cargo": "Engenheiro DevOps Sênior",
-      "periodo": "Jan 2021 – Presente",
+      "empresa": "Simpala Financeira",
+      "cargo": "Engenheiro Fullstack Pleno",
+      "periodo": "Ago 2024 – Jan 2025",
       "responsabilidades": [
-        "Gerenciei infraestrutura AWS para 12 microsserviços em produção com 99.95% de uptime.",
-        "Implementei pipelines CI/CD com GitHub Actions reduzindo tempo de deploy em 60%.",
-        "Containerizei aplicações legadas com Docker e Kubernetes (EKS), eliminando ambiente staging.",
-        "Defini políticas de IaC com Terraform, padronizando 100% dos recursos cloud.",
-        "Reduzi custos de infraestrutura em 35% via rightsizing e spot instances."
+        "Desenvolvimento e documentação de automações em Python. ",
+        "Integração com ERP e otimização de fluxos internos.",
+        "Processamento e leitura de dados. ",
+        "Colaboração com equipes técnicas e análise de requisitos de software."
       ]
     },
     {
-      "empresa": "Startup XYZ",
-      "cargo": "Analista de Infraestrutura",
-      "periodo": "Mar 2018 – Dez 2020",
+      "empresa": "UNIRITTER (Projeto de Extra-curricular)",
+      "cargo": "Instrutor de Programação e Desenvolvimento de Software (Voluntário)",
+      "periodo": "Mar 2023 – Mar 2024",
       "responsabilidades": [
-        "Migrei servidores on-premise para AWS EC2 e RDS, reduzindo latência em 40%.",
-        "Automatizei tarefas operacionais com scripts Bash e Python, economizando 15h/semana.",
-        "Configurei monitoramento com Prometheus e Grafana para 8 aplicações críticas.",
-        "Implementei backup automatizado com retenção de 30 dias e restore testado mensalmente."
-      ]
-    },
-    {
-      "empresa": "Agência Digital ABC",
-      "cargo": "Administrador de Sistemas Linux",
-      "periodo": "Jun 2016 – Fev 2018",
-      "responsabilidades": [
-        "Administrei 20+ servidores Ubuntu e CentOS para clientes de e-commerce.",
-        "Configurei Nginx, HAProxy e Varnish para sites com picos de 50k req/min.",
-        "Implementei SSL/TLS em toda a frota de servidores eliminando tráfego HTTP não seguro.",
-        "Automatizei atualizações e patches com Ansible, reduzindo janelas de manutenção."
+        "Ministrei aulas de Python para comunidades carentes da minha cidade. ",
+        "Criação, apresentação e instrução em sala de aula."
       ]
     }
   ],
