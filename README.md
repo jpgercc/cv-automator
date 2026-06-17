@@ -144,6 +144,7 @@ AI_MODEL=gemini-1.5-flash
 - ✅ Fontes incorporadas no PDF
 - ✅ Compatível com conversores PDF → TXT
 - ✅ Caracteres especiais preservados
+- ✅ PDF ajustado automaticamente para caber em 1 página; se não couber, a geração falha explicitamente
 
 ---
 

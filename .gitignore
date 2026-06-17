@@ -9,3 +9,9 @@ output/*.typ
 dist/
 build/
 .DS_Store
+
+# Arquivos pessoais em /data
+data/perfil_mestre_definitivo.json
+
+# Arquivos pessoais em /output
+output/*
