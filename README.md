@@ -1,10 +1,21 @@
 # Perfect CV
 
+Geração automática de currículos ATS-friendly a partir de um Perfil Mestre em JSON e uma descrição de vaga.
+
 ```
 [Dados Base: JSON] ➔ [Orquestrador: Python] ➔ [IA: LLM API] ➔ [Validação: Pydantic] ➔ [Renderizador: Typst] ➔ [PDF Perfeito para ATS]
 ```
-
-Geração automática de currículos ATS-friendly a partir de um Perfil Mestre em JSON e uma descrição de vaga.
+### Diferenciais
+- Open source
+- Sem assinatura
+- Sem limites artificiais de uso
+- Perfil mestre armazenado localmente
+- Dados em JSON legível
+- Sem lock-in
+- Template totalmente customizável
+- Escolha do provedor de IA
+- Controle do custo por geração
+- Versionável com Git
 
 ---
 
