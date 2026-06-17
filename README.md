@@ -1,4 +1,4 @@
-# Perfect CV
+# cv-automator
 
 Geração automática de currículos ATS-friendly a partir de um Perfil Mestre em JSON e uma descrição de vaga.
 
