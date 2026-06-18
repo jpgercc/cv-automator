@@ -47,9 +47,9 @@ def _remove_repeated_lines(text: str) -> str:
             lines.append(line)
     return "\n".join(lines)
 
-
+# MELHORAR A REMOCAO DE RUIDO
 def _remove_benefits_noise(text: str) -> str:
-    """Remove padrões comuns de benefícios e ruído irrelevante."""
+    """Remove padroes comuns de beneficios e ruido irrelevante."""
     noise_patterns = [
         r"(?i)(vale[\s-]?(refeição|alimentação|transporte|cultura|academia)[\s\S]{0,120})",
         r"(?i)(plano[\s-]?(de saúde|odontológico|médico)[\s\S]{0,120})",
@@ -67,8 +67,8 @@ def _remove_benefits_noise(text: str) -> str:
 
 def clean_job_description(raw: str) -> str:
     """
-    Limpa a descrição da vaga preservando apenas requisitos técnicos
-    e responsabilidades relevantes para o currículo.
+    Limpa a descricao da vaga preservando apenas requisitos tecnicos
+    e responsabilidades relevantes para o currculo.
     """
     text = _remove_urls(raw)
     text = _remove_benefits_noise(text)
@@ -78,9 +78,9 @@ def clean_job_description(raw: str) -> str:
     return text.strip()
 
 
-# ─────────────────────────────────────────────────────────────
-# Construção do prompt
-# ─────────────────────────────────────────────────────────────
+# 
+# Construcao do prompt
+# 
 
 _SYSTEM_PROMPT = """\
 Você é um especialista em currículos ATS (Applicant Tracking System).
@@ -140,9 +140,9 @@ def build_prompt(perfil: dict[str, Any], vaga_limpa: str) -> str:
     )
 
 
-# ─────────────────────────────────────────────────────────────
+# 
 # Clientes de IA
-# ─────────────────────────────────────────────────────────────
+# 
 
 class RateLimitError(Exception):
     """Levantado quando a API retorna HTTP 429."""
@@ -213,9 +213,9 @@ def _call_gemini(prompt: str) -> dict[str, Any]:
     return _parse_json_from_response(response.text)
 
 
-# ─────────────────────────────────────────────────────────────
+# 
 # Interface pública
-# ─────────────────────────────────────────────────────────────
+# 
 
 def generate_curriculum(perfil: dict[str, Any], vaga_raw: str) -> dict[str, Any]:
     """

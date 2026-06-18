@@ -1,8 +1,8 @@
 """
-models.py — Schemas Pydantic para validação da resposta da IA.
+models.py - Schemas Pydantic para validacao da resposta da IA.
 
 Toda resposta da IA passa por estes modelos antes de ser usada.
-Respostas inválidas são rejeitadas, nunca silenciadas.
+Respostas invalidas sao rejeitadas, nunca silenciadas.
 """
 
 from typing import Any

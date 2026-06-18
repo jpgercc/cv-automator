@@ -1,13 +1,13 @@
 """
-main.py — Orquestrador do Perfect CV.
+main.py - Orquestrador do Perfect CV.
 
 Fluxo completo:
-  [Perfil Mestre JSON] + [Descrição da Vaga]
-  → Limpeza
-  → LLM
-  → Validação Pydantic
-  → Geração Typst
-  → Compilação PDF
+  [Perfil Mestre JSON] + [Descricao da Vaga]
+  - Limpeza
+  - LLM
+  - Validacao Pydantic
+  - Geracaoo Typst
+  - Compilacao PDF
 """
 
 import argparse
@@ -23,7 +23,7 @@ from src.ia_client import generate_curriculum
 from src.models import Curriculum
 from src.compiler import compile_pdf
 
-# ── Logging ───────────────────────────────────────────────────
+# Logging 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s — %(message)s",
@@ -32,9 +32,9 @@ logging.basicConfig(
 logger = logging.getLogger("main")
 
 
-# ─────────────────────────────────────────────────────────────
+# 
 # Helpers de I/O
-# ─────────────────────────────────────────────────────────────
+#
 
 def _load_json(path: Path) -> dict:
     try:
@@ -51,7 +51,7 @@ def _load_text(path: Path) -> str:
     try:
         return path.read_text(encoding="utf-8")
     except FileNotFoundError:
-        logger.error("Arquivo de vaga não encontrado: %s", path)
+        logger.error("Arquivo de vaga nao encontrado: %s", path)
         sys.exit(1)
 
 
@@ -61,29 +61,29 @@ def _safe_slug(text: str) -> str:
     return re.sub(r"[^\w]+", "_", text.lower()).strip("_")
 
 
-# ─────────────────────────────────────────────────────────────
+#
 # Fluxo principal
-# ─────────────────────────────────────────────────────────────
+#
 
 def run(vaga_path: Path, output_name: str | None = None) -> Path:
     """
     Executa o fluxo completo para uma vaga.
 
     Args:
-        vaga_path: Caminho para o arquivo .txt com a descrição da vaga.
-        output_name: Nome do PDF de saída. Se None, gerado automaticamente.
+        vaga_path: Caminho para o arquivo .txt com a descricao da vaga.
+        output_name: Nome do PDF de saida. Se None, gerado automaticamente.
 
     Returns:
         Path para o PDF gerado.
     """
-    # 1. Validar configuração
+    # 1. Validar configuracao
     settings.validate_provider_key()
 
     # 2. Carregar perfil mestre
     logger.info("Carregando perfil mestre: %s", settings.perfil_path)
     perfil = _load_json(settings.perfil_path)
 
-    # 3. Carregar descrição da vaga
+    # 3. Carregar descricao da vaga
     logger.info("Carregando vaga: %s", vaga_path)
     vaga_raw = _load_text(vaga_path)
 
@@ -96,7 +96,7 @@ def run(vaga_path: Path, output_name: str | None = None) -> Path:
     try:
         curriculum = Curriculum.model_validate(raw_result)
     except ValidationError as exc:
-        logger.error("Resposta da IA inválida:\n%s", exc)
+        logger.error("Resposta da IA invalida:\n%s", exc)
         sys.exit(1)
 
     # 6. Definir nome do PDF
@@ -113,25 +113,25 @@ def run(vaga_path: Path, output_name: str | None = None) -> Path:
     return pdf_path
 
 
-# ─────────────────────────────────────────────────────────────
+# 
 # CLI
-# ─────────────────────────────────────────────────────────────
+# 
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="perfect-cv",
-        description="Gera currículos ATS-friendly a partir de um perfil JSON e uma vaga.",
+        description="Gera curriculos ATS-friendly a partir de um perfil JSON e uma vaga.",
     )
     parser.add_argument(
         "vaga",
         type=Path,
-        help="Caminho para o arquivo .txt com a descrição da vaga.",
+        help="Caminho para o arquivo .txt com a descricao da vaga.",
     )
     parser.add_argument(
         "--output",
         type=str,
         default=None,
-        help="Nome do arquivo PDF de saída (ex: CV_Joao_DevOps.pdf).",
+        help="Nome do arquivo PDF de saida (ex: CV_Joao_DevOps.pdf).",
     )
     parser.add_argument(
         "--perfil",
@@ -149,8 +149,8 @@ def main() -> None:
     # Sobrescreve perfil se fornecido via CLI
     if args.perfil:
         settings.data_dir = args.perfil.parent
-        # Redefinir perfil_path dinamicamente não é necessário pois
-        # a property já computa a partir de data_dir; basta copiar:
+        # Redefinir perfil_path dinamicamente nao e necessario pois
+        # a property ja computa a partir de data_dir; basta copiar:
         import shutil
         target = settings.data_dir / "perfil_mestre.json"
         if args.perfil != target:
