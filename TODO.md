@@ -1,7 +1,7 @@
-# TO DO PLAN LIST
+# TO DO LIST
 
-* A JSON could be set place in a new './config.json' file
-at 'src/models.py'.
+1.
+inves de recriar o modelo base como por EXEMPLO em:
 ``` txt
 class Curriculum(BaseModel):
     nome: str = Field(..., min_length=1)
@@ -19,21 +19,12 @@ class Curriculum(BaseModel):
     idiomas: list[Language] = Field(default_factory=list)
 ```
 
-* 'config.json' should have:
-- groq and gemni configs
-- cv builder info and AI config (used in src/models.py, ai_client.py in _SYSTEM_PROMPT)
-- cli configs (if any)
+Essas informações deveriam ser puxadas direto de perfil_mestre.json, assim caso o usuario adicione ou remova alguma linha, o código continua funcionando normalmente
 
-* Note: If it importes data from 'perfil_mestre.json' why not import date on the coluns to build the source code? So that json dictates for all that refer him?
+2. 
+Main deveria ter apenas referencia propria, sem orquestrar nada, o orquestramento pode ser feito em um novo arquivo como um run.py
 
-* Instead of '/data' lets rename it '/config' and add 'config.json' there.
-
-* Better noise removal in 'src/ai_client.py'
-
-* Move functions and methods from 'main.py' to 'src/run.py'. In 'main.py' should only have self refer, like as:
-```
-# def main
-
-if __name__ == "__main__":
-    main()
-```
+3.
+config.py deveria ser realmente util, deveria conter:
+- ai configs (noise removal, prompts and every AI configure variable)
+- .pdf config (so user can select if he want to limit .pdf pages or use smaller fonts to fit, etc.)
